@@ -4,7 +4,6 @@ import remarkGfm from 'remark-gfm'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  distDir: "build",
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
 }
 
