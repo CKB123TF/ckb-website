@@ -276,7 +276,7 @@ export default async function Home() {
             NYC Software Engineer, Writer, and Founder
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            "All great literature is one of two stories; a man goes on a journey or a stranger comes to town." Leo Tolstoy
+            All great literature is one of two stories; a man goes on a journey or a stranger comes to town. Leo Tolstoy
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink
