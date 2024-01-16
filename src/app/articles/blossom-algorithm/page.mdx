@@ -1,0 +1,116 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+import { MdxImage as Image } from '@/components/MdxImage'
+import blossom from './blossom.webp'
+import edmunds from './edmunds.svg.png'
+
+export const article = {
+  author: 'Christian Kildal-Brandt',
+  date: '2024-01-11',
+  title: 'Demystifying Edmonds’ Blossom Algorithm',
+  description:
+    'Edmonds’ blossom algorithm can be incredibly useful in terms of finding the Maximum Matching of an undirected graph. Its power comes from the fact that it is not limited by the shape of the graph, and can consequently be of great use in important problems like the Traveling Salesman Problem. Unfortunately, it is complex both in terms of the number of steps that it requires to complete and in terms of the average difficulty of each step.',
+}
+
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+export default (props) => <ArticleLayout article={article} {...props} />
+
+Edmonds’ blossom algorithm can be incredibly useful in terms of finding the Maximum Matching of an undirected graph. Its power comes from the fact that it is not limited by the shape of the graph, and can consequently be of great use in important problems like the Traveling Salesman Problem. Unfortunately, it is complex both in terms of the number of steps that it requires to complete and in terms of the average difficulty of each step. In this short article I’ll be going through each of the core components of the Blossom Algorithm and explaining them, before showing the working Python code (if you just want the working code please feel free to scroll all the bottom of this article).
+
+<Image src={blossom} alt="blossom" />
+
+Edmonds’ blossom algorithm can be incredibly useful in terms of finding the Maximum Matching of an undirected graph. Its power comes from the fact that it is not limited by the shape of the graph, and can consequently be of great use in important problems like the Traveling Salesman Problem. Unfortunately, it is complex both in terms of the number of steps that it requires to complete and in terms of the average difficulty of each step. In this short article I’ll be going through each of the core components of the Blossom Algorithm and explaining them, before showing the working Python code (if you just want the working code please feel free to scroll all the bottom of this article).
+In order to understand the Blossom Algorithm, one must first understand what is at the core of its functionality. The Blossom Algorithm uses the idea of “augmenting paths” (which are just exposed vertices) in order to find the maximum matching amount. The algorithm seeks to expand to the maximum length matching path iteratively until there are no augmenting length paths left at which point we know that maximum matching has been acheived. This sounds complex but a visual can help to understand this:
+
+<Image src={edmunds} alt="edmunds" />
+
+On the right side of the image, there are no longer any exposed vertices that augmenting paths could result from meaning that we have achieved maximum matching within the graph.
+Where the Blossom Algorithm becomes complex is when adding an exposed vertices creates a cycle within the graph. In this case, it can be difficult to identify which augmenting path is optimal and how to get to it without running into cycling issues and runtime issues. For this, the Blossom Algorithm presents a novel solution — we shrink these odd length cycles down and treat them as singular node before expanding it back outwards at a later time. Of note is the fact that this can happen multiple times and while the Blossom is shrunk into its singular form it may still be part of a seperate cycle where it will continue to shrink down. For examples of what this looks like in practice I would take a look at this website which has a great interactive view of the process.
+
+[Blossom Algorithm Demo](https://algorithms.discrete.ma.tum.de/graph-algorithms/matchings-blossom-algorithm/index_en.html?source=post_page-----6353eb043311--------------------------------)
+
+The function moves through the graph, shrinking and expanding blossoms and searching for augmenting paths, until it finally reaches a point at which there no longer are any potential augmenting paths that can be taken at which point the result is returned.
+
+Full Code:
+
+```py
+# To all those with other open source code on the internet I thank you
+# Find the lowest common ancestor in the blossom tree
+def lca(match, base, p, a, b):
+    used = [False] * len(match)
+    while True:
+        a = base[a]
+        used[a] = True
+        if match[a] == -1:
+            break
+        a = p[match[a]]
+    while True:
+        b = base[b]
+        if used[b]:
+            return b
+        b = p[match[b]]
+
+# Mark the path from v to the base of the blossom
+def mark_path(match, base, blossom, p, v, b, children):
+    while base[v] != b:
+        blossom[base[v]] = blossom[base[match[v]]] = True
+        p[v] = children
+        children = match[v]
+        v = p[match[v]]
+
+def find_path(graph, match, p, root):
+    n = len(graph)
+    used = [False] * n
+    p[:] = [-1] * n
+    base = list(range(n))
+    used[root] = True
+    q = [root]
+
+    while q:
+        v = q.pop(0)
+        for to in graph[v]:
+            if base[v] == base[to] or match[v] == to:
+                continue
+            if to == root or (match[to] != -1 and p[match[to]] != -1):
+                curbase = lca(match, base, p, v, to)
+                blossom = [False] * n
+                mark_path(match, base, blossom, p, v, curbase, to)
+                mark_path(match, base, blossom, p, to, curbase, v)
+                for i in range(n):
+                    if blossom[base[i]]:
+                        base[i] = curbase
+                        if not used[i]:
+                            used[i] = True
+                            q.append(i)
+            elif p[to] == -1:
+                p[to] = v
+                if match[to] == -1:
+                    return to
+                to = match[to]
+                used[to] = True
+                q.append(to)
+    return -1
+
+# Implementation of Blossom Algorithm
+def max_matching(graph):
+    n = len(graph)
+    match = [-1] * n
+    p = [0] * n
+    for i in range(n):
+        if match[i] == -1:
+            v = find_path(graph, match, p, i)
+            while v != -1:
+                pv = p[v]
+                ppv = match[pv]
+                match[v] = pv
+                match[pv] = v
+                v = ppv
+    # Returns number of pairs in graph
+    return sum(1 for x in match if x != -1) // 2
+```
+
+

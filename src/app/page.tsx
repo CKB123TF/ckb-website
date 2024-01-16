@@ -7,14 +7,15 @@ import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
 import {
   GitHubIcon,
-  InstagramIcon,
+  MediumIcon,
   LinkedInIcon,
-  TwitterIcon,
+  InstagramIcon,
+  TwitterIcon
 } from '@/components/SocialIcons'
-import logoAirbnb from '@/images/logos/airbnb.svg'
-import logoFacebook from '@/images/logos/facebook.svg'
-import logoPlanetaria from '@/images/logos/planetaria.svg'
-import logoStarbucks from '@/images/logos/starbucks.svg'
+import logoNinthStreet from '@/images/logos/NinthStreet.svg'
+import logoESC from '@/images/logos/esc.svg'
+import logoSlalom from '@/images/logos/slalom_consulting_logo.svg'
+import logoTutortechy from '@/images/logos/tutortechy.svg'
 import image1 from '@/images/photos/image-1.jpg'
 import image2 from '@/images/photos/image-2.jpg'
 import image3 from '@/images/photos/image-3.jpg'
@@ -187,35 +188,32 @@ function Role({ role }: { role: Role }) {
 function Resume() {
   let resume: Array<Role> = [
     {
-      company: 'Planetaria',
-      title: 'CEO',
-      logo: logoPlanetaria,
-      start: '2019',
-      end: {
-        label: 'Present',
-        dateTime: new Date().getFullYear().toString(),
-      },
+      company: 'Slalom',
+      title: 'Software Engineering Consultant',
+      logo: logoSlalom,
+      start: '2021',
+      end: 'Present',
     },
     {
-      company: 'Airbnb',
-      title: 'Product Designer',
-      logo: logoAirbnb,
-      start: '2014',
-      end: '2019',
+      company: 'Tutortechy',
+      title: 'Founder',
+      logo: logoTutortechy,
+      start: '2021',
+      end: '2023',
     },
     {
-      company: 'Facebook',
-      title: 'iOS Software Engineer',
-      logo: logoFacebook,
-      start: '2011',
-      end: '2014',
+      company: 'Elite Scholars of China',
+      title: 'Consultant',
+      logo: logoESC,
+      start: '2020',
+      end: '2021',
     },
     {
-      company: 'Starbucks',
-      title: 'Shift Supervisor',
-      logo: logoStarbucks,
-      start: '2008',
-      end: '2011',
+      company: 'Ninth Street Jerky',
+      title: 'Founder',
+      logo: logoNinthStreet,
+      start: '2017',
+      end: '2020',
     },
   ]
 
@@ -230,7 +228,7 @@ function Resume() {
           <Role key={roleIndex} role={role} />
         ))}
       </ol>
-      <Button href="#" variant="secondary" className="group mt-6 w-full">
+      <Button href={'/resume.pdf'}  target="_blank"  rel="noopener noreferrer" locale={false} variant="secondary" className="group mt-6 w-full" download>
         Download CV
         <ArrowDownIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
       </Button>
@@ -275,11 +273,14 @@ export default async function Home() {
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
             NYC Software Engineer, Writer, and Founder
           </h1>
-          <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            All great literature is one of two stories; a man goes on a journey or a stranger comes to town. Leo Tolstoy
+          <p className="mt-6 text-base text-zinc-800 dark:text-zinc-400">
+            ’All great literature is one of two stories; a man goes on a journey or a stranger comes to town.’ - Leo Tolstoy
+          </p>
+          <p className="mt-6 text-base text-zinc-800 dark:text-zinc-400">
+            Welcome to my website! The site is always work in progress and is a place where I store all of my projects and writings.
           </p>
           <div className="mt-6 flex gap-6">
-            <SocialLink
+            {/* <SocialLink
               href="https://twitter.com"
               aria-label="Follow on Twitter"
               icon={TwitterIcon}
@@ -288,7 +289,7 @@ export default async function Home() {
               href="https://instagram.com"
               aria-label="Follow on Instagram"
               icon={InstagramIcon}
-            />
+            /> */}
             <SocialLink
               href="https://github.com/CKB123TF"
               aria-label="Follow on GitHub"
@@ -298,6 +299,11 @@ export default async function Home() {
               href="https://www.linkedin.com/in/christian-kildal-brandt-68904215a/"
               aria-label="Follow on LinkedIn"
               icon={LinkedInIcon}
+            />
+            <SocialLink
+              href="https://medium.com/@ckildalbrandt"
+              aria-label="Follow on Medium"
+              icon={MediumIcon}
             />
           </div>
         </div>
@@ -311,7 +317,7 @@ export default async function Home() {
             ))}
           </div>
           <div className="space-y-10 lg:pl-16 xl:pl-24">
-            <Newsletter />
+            {/* <Newsletter /> */}
             <Resume />
           </div>
         </div>

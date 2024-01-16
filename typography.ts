@@ -27,7 +27,7 @@ export default function typographyStyles({ theme }: PluginUtils) {
     },
     DEFAULT: {
       css: {
-        '--tw-prose-body': theme('colors.zinc.600'),
+        '--tw-prose-body': theme('colors.zinc.800'),
         '--tw-prose-headings': theme('colors.zinc.900'),
         '--tw-prose-links': theme('colors.teal.500'),
         '--tw-prose-links-hover': theme('colors.teal.600'),
@@ -47,7 +47,7 @@ export default function typographyStyles({ theme }: PluginUtils) {
         '--tw-prose-th-borders': theme('colors.zinc.200'),
         '--tw-prose-td-borders': theme('colors.zinc.100'),
 
-        '--tw-prose-invert-body': theme('colors.zinc.400'),
+        '--tw-prose-invert-body': theme('colors.zinc.300'),
         '--tw-prose-invert-headings': theme('colors.zinc.200'),
         '--tw-prose-invert-links': theme('colors.teal.400'),
         '--tw-prose-invert-links-hover': theme('colors.teal.400'),

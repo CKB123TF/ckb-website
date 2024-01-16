@@ -7,6 +7,7 @@ import { Container } from '@/components/Container'
 import {
   GitHubIcon,
   InstagramIcon,
+  MediumIcon,
   LinkedInIcon,
   TwitterIcon,
 } from '@/components/SocialIcons'
@@ -69,51 +70,45 @@ export default function About() {
         </div>
         <div className="lg:order-first lg:row-span-2">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-            I’m Christian Kildal-Brandt. I live in New York City, where I design the
-            future.
+            I’m Christian. I live in New York City, where I write essays and stories in addition to building cool things.
           </h1>
-          <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
+          <div className="mt-6 space-y-7 text-base text-zinc-800 dark:text-zinc-300">
             <p>
-              I’ve loved making things for as long as I can remember, and wrote
-              my first program when I was 6 years old, just two weeks after my
-              mom brought home the brand new Macintosh LC 550 that I taught
-              myself to type on.
+              I only began to code in college while I was studying at the University of Pennsylvania (unfortunately in my final semester)
+              but fell in love with the reach that I could have by harnessing the power of technology. While I had been an entrepreneur previously,
+              going through the process of biking around Philadelphia with baskets full of beef jerky delivering to all of our retailers. I had previously had my goals for the company thrashed 
+              due to covid and being unable to deliver directly to our customers. I made the difficult to decision to close the business down shortly
+              after Covid arrived in the United States and moved on to search for professional roles in coding where I have spent my career since.
             </p>
             <p>
-              The only thing I loved more than computers as a kid was space.
-              When I was 8, I climbed the 40-foot oak tree at the back of our
-              yard while wearing my older sister’s motorcycle helmet, counted
-              down from three, and jumped — hoping the tree was tall enough that
-              with just a bit of momentum I’d be able to get to orbit.
+              Today, I’m a consultant at Slalom, where I work on building out commercial contracting
+              systems for some of the largest companies in the world. In my free time I work on projects
+              that I hope can impact many people in a positive way. My current side project is around
+              allowing book influencers (<em>booktokers</em>) to connect more closely with their audiences.
             </p>
             <p>
-              I spent the next few summers indoors working on a rocket design,
-              while I recovered from the multiple surgeries it took to fix my
-              badly broken legs. It took nine iterations, but when I was 15 I
-              sent my dad’s Blackberry into orbit and was able to transmit a
-              photo back down to our family computer from space.
-            </p>
-            <p>
-              Today, I’m the founder of Planetaria, where we’re working on
-              civilian space suits and manned shuttle kits you can assemble at
-              home so that the next generation of kids really <em>can</em> make
-              it to orbit — from the comfort of their own backyards.
+              In my free time I enjoy seeing the latest films at my local movie theatre (thank you AMC plus), completing as many single player video games
+              as my schedule allows (Resident Evil 4 is next on my list), and reading classic literature (Anna Karenina is a recent favorite). I hope that you enjoy
+              my website and if you feel like reaching out for any reason please don’t hesitate to do so!
             </p>
           </div>
         </div>
         <div className="lg:pl-20">
           <ul role="list">
-            <SocialLink href="#" icon={TwitterIcon}>
+            {/* <SocialLink href="#" icon={TwitterIcon}>
               Follow on Twitter
             </SocialLink>
             <SocialLink href="#" icon={InstagramIcon} className="mt-4">
               Follow on Instagram
-            </SocialLink>
+            </SocialLink> */}
             <SocialLink href="https://github.com/CKB123TF" icon={GitHubIcon} className="mt-4">
               Follow on GitHub
             </SocialLink>
             <SocialLink href="https://www.linkedin.com/in/christian-kildal-brandt-68904215a/" icon={LinkedInIcon} className="mt-4">
               Follow on LinkedIn
+            </SocialLink>
+            <SocialLink href="https://medium.com/@ckildalbrandt" icon={MediumIcon} className="mt-4">
+              Follow on Medium
             </SocialLink>
             <SocialLink
               href="mailto:ckildalbrandt@gmail.com"
