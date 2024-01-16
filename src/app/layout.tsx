@@ -9,10 +9,10 @@ export const metadata: Metadata = {
   title: {
     template: '%s - Christian Anders Kildal-Brandt',
     default:
-      'Christian Kildal-Brandt - Software designer, founder, and amateur astronaut',
+      'Christian Kildal-Brandt - Software Engineer, Founder, and Writer',
   },
   description:
-    'I’m Christian, a software designer and entrepreneur based in New York City. I’m the founder and CEO of Planetaria, where we develop technologies that empower regular people to explore space on their own terms.',
+    'I’m Christian, a Software Engineer, Founder, and Writer based in New York City.',
   alternates: {
     types: {
       'application/rss+xml': `${process.env.NEXT_PUBLIC_SITE_URL}/feed.xml`,
