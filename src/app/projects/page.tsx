@@ -10,6 +10,7 @@ import logoOpenShuttle from '@/images/logos/open-shuttle.svg'
 import logoPlanetaria from '@/images/logos/planetaria.svg'
 import logoNinthStreet from '@/images/logos/NinthStreet.svg'
 import logoTutortechy from '@/images/logos/tutortechy.svg'
+import logoBibliotheca from '@/images/logos/library.svg'
 
 const projects = [
   {
@@ -24,6 +25,12 @@ const projects = [
       'Helping schools and independent tutors expand their programs online with in-browser video and archiving in addition to scheduling and connecting software',
     link: { href: 'https://www.tutortechy.com', label: 'tutortechy.com' },
     logo: logoTutortechy,
+  },
+  {
+    name: 'Bibliotheca',
+    description: 'A better way to organize your private library',
+    link: { href: 'https://www.ourbibliotheca.com', label: 'ourbibliotheca.com' },
+    logo: logoBibliotheca,
   }
 ]
 
