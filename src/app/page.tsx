@@ -9,6 +9,7 @@ import {
   GitHubIcon,
   MediumIcon,
   LinkedInIcon,
+  YoutubeIcon,
   InstagramIcon,
   TwitterIcon
 } from '@/components/SocialIcons'
@@ -304,6 +305,11 @@ export default async function Home() {
               href="https://medium.com/@ckildalbrandt"
               aria-label="Follow on Medium"
               icon={MediumIcon}
+            />
+            <SocialLink
+              href="https://www.youtube.com/channel/UCXmluTjm45_pZKBfzfw3rCQ"
+              aria-label="Subscribe on Youtube"
+              icon={YoutubeIcon}
             />
           </div>
         </div>

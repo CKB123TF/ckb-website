@@ -10,6 +10,7 @@ import {
   MediumIcon,
   LinkedInIcon,
   TwitterIcon,
+  YoutubeIcon
 } from '@/components/SocialIcons'
 import portraitImage from '@/images/portrait.jpg'
 
@@ -109,6 +110,9 @@ export default function About() {
             </SocialLink>
             <SocialLink href="https://medium.com/@ckildalbrandt" icon={MediumIcon} className="mt-4">
               Follow on Medium
+            </SocialLink>
+            <SocialLink href="https://www.youtube.com/channel/UCXmluTjm45_pZKBfzfw3rCQ" icon={YoutubeIcon} className="mt-4">
+              Subscribe on Youtube
             </SocialLink>
             <SocialLink
               href="mailto:ckildalbrandt@gmail.com"
