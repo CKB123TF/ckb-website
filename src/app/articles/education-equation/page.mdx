@@ -1,0 +1,42 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+import { MdxImage as Image } from '@/components/MdxImage'
+import education from './education-equation.jpg'
+
+export const article = {
+  author: 'Christian Kildal-Brandt',
+  date: '2024-06-26',
+  title: 'The Education Equation',
+  description:
+    'An analysis of how personalized AI will impact education.',
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+export default (props) => <ArticleLayout article={article} {...props} />
+
+<Image src={education} alt="education" />
+
+In 1997, chess champion Gary Kasparov the second highest chess player of all time lost IBM's supercomputer Deep Blue becoming one of the first casualties of the AI revolution. Since then, AI models became the cornerstone of all preparation for competitive chess games. Players have the opportunity to play against generated puzzles, play against higher and lower level chess AI, and know which move is most correct from the current placement of pieces. 
+I believe that the way in which both AI developed and the way in which chess players interacted with it evolved to interact with it as a tool to improve themselves exemplifies one of the main ways in which people will grow around and interact with AI in the future.
+
+Up to this point there have been assumed to be 3 drivers of AI development:
+1. Compute Power
+2. Data
+3. Better Fit Model Techniques
+
+In this article I would like to offer a 4th meaningful driver and the one that I would argue will be among the most important as models evolve: 
+
+4. **Personal Fit Model Techniques**
+
+I would like to differentiate number 3 and 4 explicitly by making the following statements:
+
+1. That when LLMs minimize error in their responses, this represents a movement towards deep understanding of the topics towards which they are responding. \*Better Fit Model Techniques
+2. That when learning something (e.g. studying for LSAT/SAT/Spanish), that it is possible to build a delta of where the user is making mistakes and vectorize the difference between user error and model correctness to discover a bespoke "best path forward" of personalized curriculum for the user. \*Personal Fit Model Techniques
+I also believe this next stage of AI evolution will be its most important. In achieving personalized and specific curriculum, educational outcomes will improve exponentially. 
+   
+Philosophically this can be represented as the following sentiment:
+
+That if the 1st stage of the AI revolution is characterized by a push of the 1st 3 levers that were mentioned earlier to see a massive improvement in AI responses (the stage we are in now), that the second stage of the AI revolution will be in using those responses to propagate those improvements backwards and deliver educational improvements. I also believe that this will become cyclical; as AI modeling improve so too will people; as people improve so to will AI modeling.
