@@ -24,6 +24,69 @@ import image4 from '@/images/photos/image-4.jpg'
 import image5 from '@/images/photos/image-5.jpg'
 import { type ArticleWithSlug, getAllArticles } from '@/lib/articles'
 import { formatDate } from '@/lib/formatDate'
+import TravelMap from '@/components/Map'
+
+interface Country {
+  name: string;
+  coordinates: L.LatLngExpression;
+  geojson?: GeoJSON.GeoJsonObject;
+  description?: string;
+}
+
+const countries: Country[] = [
+  { 
+    name: "United States 🇺🇸", 
+    coordinates: [37.0902, -95.7129],
+    description: "I grew up in NJ/NY/PA!"
+  },
+  { 
+    name: "France 🏳️", 
+    coordinates: [46.2276, 2.2137],
+    description: "I spent the summer of 2016 in Tours(8/10) during study abroad and visited Paris(7/10) while there!"
+  },
+  { 
+    name: "Japan 🎌", 
+    coordinates: [36.2048, 138.2529],
+    description: "I spent the summer of 2012 in Yokohama with family and visited Hokaido and Tokyo while there!"
+  },
+  {
+    name: "Canada 🇨🇦", 
+    coordinates: [56.1304, 106.3468],
+    description: "I spent 1st-3rd grade in Port Credit/Toronto!"
+  },
+  { 
+    name: "Netherlands 🇳🇱", 
+    coordinates: [52.1326, 5.2913],
+    description: "I visited Den Haag and Amsterdam in summer of 2016 for a few days!"
+  },
+  {
+    name: "Sweden 🇸🇪", 
+    coordinates: [60.1282, 18.6435],
+    description: "I visited Stockholm and Gotland with my family when I was 12 (Vasa museum was so cool)!"
+  },
+  { 
+    name: "Denmark 🇩🇰", 
+    coordinates: [56.2639, 9.5018],
+    description: "I visited Copenhagen with my mom during summer 2018!"
+  },
+  { 
+    name: "Norway 🇳🇴", 
+    coordinates: [60.4720, 8.4689],
+    description: "My half-brother is from here and I've visited Arendal(9/10), Oslo(8/10), and Bergen(10/10)!"
+  },
+  { 
+    name: "Finland 🇫🇮", 
+    coordinates: [61.9241, 25.7482],
+    description: "I visited Helisinki (5/10) during the summer of 2024!"
+  },
+  { 
+    name: "Estonia 🇪🇪", 
+    coordinates: [58.5953, 25.0136],
+    description: "I visited Tallinn (10/10) during the summer of 2024!"
+  },
+];
+
+const location: L.LatLngExpression = [59.4370, 24.7536]; // Tallinn
 
 function MailIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
@@ -160,7 +223,7 @@ function Role({ role }: { role: Role }) {
 
   return (
     <li className="flex gap-4">
-      <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
+      <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
         <Image src={role.logo} alt="" className="h-7 w-7" unoptimized />
       </div>
       <dl className="flex flex-auto flex-wrap gap-x-2">
@@ -193,7 +256,7 @@ function Resume() {
       title: 'Software Engineering Consultant',
       logo: logoSlalom,
       start: '2021',
-      end: 'Present',
+      end: '2024',
     },
     {
       company: 'Tutortechy',
@@ -327,6 +390,15 @@ export default async function Home() {
             <Resume />
           </div>
         </div>
+        <div className="px-6 py-24 sm:py-32 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl dark:text-white">🌎 Where I have been</h2>
+            <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-white">
+              Follow along with me as I explore the world!
+            </p>
+          </div>
+        </div>
+        <TravelMap initialCountries={countries} currentLocation={location} />
       </Container>
     </>
   )
